@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, Input } from "@chakra-ui/react";
 
 export function Header() {
   return (
@@ -30,7 +30,18 @@ export function Header() {
         bg="gray.800"
         borderRadius="full"
 
-      ></Flex>
+      >
+        <Input
+          px="4"
+          mr="4"
+          color="gray.50"
+          variant="unstyled"
+          placeholder="Buscar na plataforma"
+          _placeholder={{ color: "gray.400" }}
+        >
+        </Input>
+
+      </Flex>
     </Flex>
   );
 }
