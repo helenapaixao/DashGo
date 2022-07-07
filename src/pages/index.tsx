@@ -1,5 +1,6 @@
 
-import { Flex, Button, Stack, Input } from "@chakra-ui/react";
+import { Flex, Button, Stack } from "@chakra-ui/react";
+import {Input} from '../components/Form/Input';
 
 
 
@@ -25,12 +26,12 @@ export default function SignIn() {
         <Stack spacing="4">
           <Input
             name="email"
-            
+            label="Email"
             type="email"
           />
           <Input
             name="password"
-         
+            label="Password"
             type="password"
           />
         </Stack>
