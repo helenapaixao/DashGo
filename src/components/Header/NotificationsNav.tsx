@@ -1,7 +1,7 @@
 import { Flex, HStack, Icon } from "@chakra-ui/react";
 import { RiNotificationLine, RiUserLine } from "react-icons/ri";
 
-export function Notifications() {
+export function NotificationsNav() {
   return (
     <Flex align="center" ml="auto">
       <HStack
@@ -11,7 +11,7 @@ export function Notifications() {
         color="gray.300"
         borderRightWidth={1}
         borderColor="gray.700"
-        spacing="8"
+        spacing={["6", "8", "8", "8"]}
       >
         <Icon as={RiNotificationLine} fontSize="20" />
         <Icon as={RiUserLine} fontSize="20" />
