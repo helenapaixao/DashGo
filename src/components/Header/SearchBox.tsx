@@ -1,3 +1,4 @@
+import {SetStateAction, useState} from 'react';
 import { Flex, Input, Icon } from "@chakra-ui/react";
 import { RiSearchLine } from "react-icons/ri";
 
@@ -23,7 +24,8 @@ export function SearchBox() {
         variant="unstyled"
         placeholder="Buscar na plataforma"
         _placeholder={{ color: "gray.400" }}
-      ></Input>
+       
+      />
 
       <Icon as={RiSearchLine} fontSize="20" />
     </Flex>
