@@ -14,17 +14,32 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Pagination } from "../../components/Pagination";
-import Link from "next/link";
+import { useQuery } from '@tanstack/react-query'
+
+
+
 
 export default function UserList() {
+
+  const query = useQuery(['users'], async () => {
+    const response = await fetch('http://localhost:3000/api/users')
+    const data = await response.json()
+    
+    return data;
+  })
+  console.log(query)
+
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true,
   });
+
+  
   return (
     <Box>
       <Header />
