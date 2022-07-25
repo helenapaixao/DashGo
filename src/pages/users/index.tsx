@@ -18,9 +18,10 @@ import {
 import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
+import { RiAddLine } from "react-icons/ri";
 import { Pagination } from "../../components/Pagination";
 import { useQuery } from "@tanstack/react-query";
+
 
 type User = {
   id: string;
@@ -29,12 +30,14 @@ type User = {
   created_at: string;
 }
 
+
 export default function UserList() {
   const { data, isLoading, error } = useQuery(["users"], async () => {
     const response = await fetch("http://localhost:3000/api/users");
     const data = await response.json();
 
     return data;
+
   });
 
   const isWideVersion = useBreakpointValue({
@@ -86,12 +89,12 @@ export default function UserList() {
                   </Tr>
                 </Thead>
                 <Tbody>
-                      {data.users.maps((user
-                        : User)  => {
+                      {data.users.
+                        map((user: User) => {
                     return (
                       <Tr key={user.id}>
-                        <Td px={["4", "4", "6"]} color="gray.300" width="8">
-                          <Checkbox colorScheme="pink" />
+                        <Td px={["4", "4", "6"]}>
+                          <Checkbox colorScheme="purple" />
                         </Td>
                         <Td>
                           <Box>
@@ -101,18 +104,10 @@ export default function UserList() {
                             </Text>
                           </Box>
                         </Td>
-                        {isWideVersion && <Td>{user.created_at}</Td>}
-                        <Td>
-                          <Button
-                            as="a"
-                            size="sm"
-                            fontSize="16"
-                            colorScheme="purple"
-                            leftIcon={<Icon as={RiPencilLine} />}
-                          >
-                            {isWideVersion ? "Editar" : ""}
-                          </Button>
-                        </Td>
+                        {isWideVersion && <Td>
+                          
+                          {user.created_at}</Td>}
+                        <Td></Td>
                       </Tr>
                     );
                   })}
